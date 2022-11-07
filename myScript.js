@@ -28,8 +28,8 @@ albumPage.style.display = "none";
 
 
 homeBtn.addEventListener("click", (event) => {
-    homeBtn.src = "clicked-home-btn.svg";
-    playlistBtn.src = "music-library-2.png";
+    homeBtn.src = "./images/clicked-home-btn.svg";
+    playlistBtn.src = "./images/music-library-2.png";
     collectionPage.style.display = "none";
     albumPage.style.display = "none";
     homePage.style.display = "flex";
@@ -50,9 +50,9 @@ homeBtn.addEventListener("click", (event) => {
 
 
 
-chartArt[0].style.background = "url(chart-art1.svg), #D9D9D9";
-chartArt[1].style.background = "url(chart-art2.svg), #D9D9D9";
-chartArt[2].style.background = "url(lead-image2.svg), #D9D9D9";
+chartArt[0].style.background = "url(./images/chart-art1.svg), #D9D9D9";
+chartArt[1].style.background = "url(./images/chart-art2.svg), #D9D9D9";
+chartArt[2].style.background = "url(./images/lead-image2.svg), #D9D9D9";
 chartArt[2].style.backgroundSize = "cover";
 
 for (let i = 0; i < chartCard.length; i++) {
@@ -143,7 +143,7 @@ for (let i = 0; i < newReleaseArray.length; i++) {
     newReleaseCard.classList.add("new-release-card");
 
     newReleaseArt.classList.add("new-release-art");
-    newReleaseArt.style.background = `url(${newReleaseArray[i].art}), #D9D9D9`;
+    newReleaseArt.style.background = `url(./images/${newReleaseArray[i].art}), #D9D9D9`;
 
     newReleaseTitle.classList.add("new-release-title");
     newReleaseTitle.textContent = `${newReleaseArray[i].title}`;
@@ -180,7 +180,7 @@ for (let i = 0; i < popularMusicArray.length; i++) {
     popularCard.classList.add("new-release-card");
 
     popularArt.classList.add("new-release-art");
-    popularArt.style.background = `url(${popularMusicArray[i].art}), #D9D9D9`;
+    popularArt.style.background = `url(./images/${popularMusicArray[i].art}), #D9D9D9`;
 
     popularTitle.classList.add("new-release-title");
     popularTitle.textContent = `${popularMusicArray[i].title}`;
@@ -207,8 +207,8 @@ for (let i = 0; i < popularMusicArray.length; i++) {
 }
 
 const viewAlbum = () => {
-    homeBtn.src = "clicked-home-btn.svg";
-    playlistBtn.src = "music-library-2.png";
+    homeBtn.src = "./images/clicked-home-btn.svg";
+    playlistBtn.src = "./images/music-library-2.png";
     collectionPage.style.display = "none";
     homePage.style.display = "none";
     albumPage.style.display = "flex";
@@ -312,8 +312,8 @@ let newCollectionCardRect;
 let newCollectionArtist;
 
 playlistBtn.addEventListener("click", (event) => {
-    homeBtn.src = "home-btn.svg";
-    playlistBtn.src = "clicked-music-library-2.svg";
+    homeBtn.src = "./images/home-btn.svg";
+    playlistBtn.src = "./images/clicked-music-library-2.svg";
     homePage.style.display = "none";
     collectionPage.style.display = "flex";
     playlistBtn.style.filter = "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))";

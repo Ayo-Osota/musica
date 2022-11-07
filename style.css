@@ -97,7 +97,7 @@ h6 {
     top: 25.6%;
     bottom: 35.2%;
     
-    background: url(playing-art.svg);
+    background: url(./images/playing-art.svg);
     background-size: cover;
     box-shadow: 0px 15px 17px -10px rgba(0, 0, 0, 0.61);
     border-radius: 14px;
@@ -609,7 +609,7 @@ h6 {
     left: 343px;
     top: -198px;
     
-    background: url(Pexels\ Photo\ by\ Eric\ Esma.svg);
+    background: url(./images/Pexels\ Photo\ by\ Eric\ Esma.svg);
     background-position: bottom;
     background-repeat: no-repeat;
     object-fit: cover;
@@ -744,7 +744,7 @@ h6 {
     width: 20px;
     height: 20px;
     
-    background: url(like-pfp.svg), #D9D9D9;
+    background: url(./images/like-pfp.svg), #D9D9D9;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
@@ -1299,7 +1299,7 @@ h6 {
     left: 154px;
     top: 257px;
     
-    background: url(Lead-image.jpg);
+    background: url(./images/Lead-image.jpg);
     border-radius: 26.7724px;
 }
 
@@ -1370,7 +1370,7 @@ h6 {
     left: 10px;
     top: 8px;
     
-    background: url(album-art5.jpg);
+    background: url(./images/album-art5.jpg);
     background-size: cover;
     border-radius: 8.53125px;
 }
@@ -1646,7 +1646,7 @@ h6 {
         top: 0%;
         bottom: 0%;
         
-        background: url(playing-art.svg);
+        background: url(./images/playing-art.svg);
         background-size: cover;
         box-shadow: 0px 17.5746px 19.9179px -11.7164px rgba(0, 0, 0, 0.61);
         border-radius: 16.403px;
