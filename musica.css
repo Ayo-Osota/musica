@@ -501,7 +501,6 @@ h6 {
     flex-direction: row;
     align-items: flex-start;
     scroll-behavior: smooth;
-    border: solid blue;
 }
 
 .new-release-card {
@@ -1408,10 +1407,52 @@ h6 {
     display: none;
 }
 
+.phone-player {
+    display: none;
+}
+
+.playing-artist-name-sm {
+    display: none;
+}
+
+.playing-song-title-sm {
+    display: none;
+}
+
+#playing-art-sm {
+    display: none;
+}
+
+.play-control-sm {
+    display: none;
+}
+
+.play-control-btn-sm {
+    display: none;
+}
+
+.no-collection {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+
+    position: absolute;
+    left: 356px;
+    top: 144px;
+}
+
+.no-likes {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+
+    position: absolute;
+    left: 356px;
+    top: 144px;
+}
+
 @media only screen and (max-width: 700px) {
     .home-wrapper {
         position: relative;
-        width: 100%;
+        width: 414px;
         height: 100%;
         
         /* dark */
@@ -1421,11 +1462,19 @@ h6 {
 
     .home-container {
         left: 23px;
-        width: 93.82%;
-        height: 100%;
+        width: 391px;
+        height: 93%;
         
         overflow-x: hidden;
         /* border: solid red; */
+    }
+
+    .test {
+        width: 1125px;
+        height: 50px;
+        position: absolute;
+        top: 1370px;
+        left: 0px;
     }
 
     .navbar {
@@ -1629,8 +1678,7 @@ h6 {
     .list-container-wrapper {
         position: absolute;
         width: 100%;
-        top: 75.8%;
-        border: solid yellow;
+        top: 863px;
     }
 
     .list-items {
@@ -1643,24 +1691,23 @@ h6 {
         width: 110px;
         height: 24px;
         left: 0px;
-        top: 48.33%;
+        top: 550px;
         font-size: 20px;
     }
 
     .chart-card-wrapper {
         position: absolute;
         width: 100%;
-        height: 20.47%;
+        height: 233px;
         left: 0px;
-        top: 51.84%;
+        top: 590px;
         overflow-x: scroll;
-        border: solid red;
     }
 
     .chart-card {
         position: absolute;
-        width: 82.6%;
-        height: 100%;
+        width: 323px;
+        height: 233px;
         left: 0px;
         top: 0px;
     }
@@ -1679,34 +1726,34 @@ h6 {
 
     .chart-art {
         position: absolute;
-        width: 33.43%;
-        height: 42.49%;
-        left: 4.33%;
-        top: 6.44%;
+        width: 108px;
+        height: 99px;
+        left: 14px;
+        top: 15px;
     }
 
     .chart-time {
         position: absolute;
         width: 43px;
         height: 17px;
-        left: 4.33%;
-        top: 82.83%;
+        left: 14px;
+        top: 193px;
         font-size: 14px;
     }
 
     .chart-artist {
         position: absolute;
         height: 14px;
-        left: 4.33%;
-        top: 66.52%;
+        left: 14px;
+        top: 155px;
     }
 
     .chart-title {
         position: absolute;
         width: 144px;
         height: 20px;
-        left: 4.33%;
-        top: 55.364%;
+        left: 14px;
+        top: 129px;
         font-weight: 400;
     }
 

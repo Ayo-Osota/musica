@@ -88,8 +88,7 @@ playAllBtn.addEventListener("mouseout", (event) => {
 const likeChartBtn = document.querySelectorAll(".favourite-btn-container");
 const heartImg = document.querySelectorAll(".like-chart");
 
-const heartIcons = ["red-heart.svg", "Heart.svg"];
-let j = 0;
+
 
 
 const listContainer = document.getElementsByClassName('list-items');
@@ -266,8 +265,6 @@ const allCollections = document.querySelector(".collection-card-wrapper");
 const likesWrapper = document.getElementsByClassName("likes-card-wrapper")[0];
 likesWrapper.classList.add("collection-card-wrapper");
 likesWrapper.style.display = "none";
-likesWrapper.style.border = "solid red";
-allCollections.style.border = "solid yellow";
 
 let collectionArray = [];
 
@@ -359,14 +356,13 @@ if (likesData) {
     likesArray = [];
 }
 
+const heartIcons = ["red-heart.svg", "Heart.svg"];
+let j = 0;
+
+
+
 for (let i = 0; i < likeChartBtn.length; i++) {
     likeChartBtn[i].addEventListener("click", () => {
-        if (j === heartIcons.length) {
-            j = 0;
-        }
-        heartImg[i].src = heartIcons[j];
-        j++;
-
         let likes = Object.create(likesObject);
         likes.title = `${favouriteTitle[i].textContent}`;
         likes.art = `${favouriteArt[i].style.background}`;
@@ -378,12 +374,17 @@ for (let i = 0; i < likeChartBtn.length; i++) {
 
         if (likesIndex === -1) {
             likesArray.push(likes);
+            //likes.button = "red-heart.svg";
+            heartImg[i].src = "red-heart.svg";
         } else {
             likesArray.splice(likesIndex, 1);
+            //likes.button = "red-heart.svg";
+            heartImg[i].src = "Heart.svg";
         }
         
         localStorage.setItem("likesStore", JSON.stringify(likesArray));
     });
+   // heartImg[i].src = likesData[i].button;
 }
 
 
@@ -398,6 +399,7 @@ likesBtn.addEventListener("click", (event) => {
 
     newCollection.style.display = "flex";
 
+    likesWrapper.innerHTML = "";
     if (likesData) {
         for (let i = 0; i < likesData.length; i++) {
             addToCollection();
@@ -405,17 +407,7 @@ likesBtn.addEventListener("click", (event) => {
             newCollectionCardRect.style.background = `
                  linear-gradient(179.89deg, rgba(0, 0, 0, 0) 0.1%, rgba(15, 18, 19, 0.85) 80.67%), 
                  ${likesData[i].art}`;
-            
-            // if (document.allCollections.contains(newCollection)) {
-            //     console.log("full")
-            // } else {
-            //     console.log("oga")
-            //     //allCollections.prepend(newCollection);
-            // }
-            
             likesWrapper.prepend(newCollection);
-            //allCollections.children = newCollection;
-            //newCollection === allCollections.childElement;
         }
     } else {
         console.log("okay");
@@ -532,6 +524,7 @@ myCollectionBtn.addEventListener("click", (event) => {
     likesWrapper.style.display = "none";
     allCollections.style.display = "flex";
 
+    allCollections.innerHTML = "";
     displayCollection();
 
     collectionHover();
@@ -545,17 +538,7 @@ const displayCollection = () => {
             newCollectionCardRect.style.background = `
                  linear-gradient(179.89deg, rgba(0, 0, 0, 0) 0.1%, rgba(15, 18, 19, 0.85) 80.67%), 
                  ${collectionData[i].art}`;
-            
-            // if (document.allCollections.contains(newCollection)) {
-            //     console.log("full")
-            // } else {
-            //     console.log("oga")
-            //     //allCollections.prepend(newCollection);
-            // }
-            
             allCollections.prepend(newCollection);
-            //allCollections.children = newCollection;
-            //newCollection === allCollections.childElement;
         }
     } else {
         console.log("okay");
