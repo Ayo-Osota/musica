@@ -80,7 +80,8 @@ h6 {
     position: absolute;
     width: 1292px;
     height: 125px;
-    left: -5px;
+    /* left: -5px; */
+    margin: auto;
     top: 722px;
     
     filter: drop-shadow(0px -25px 100px rgba(16, 16, 16, 0.51));
@@ -947,8 +948,8 @@ h6 {
     left: 146px;
     top: 159px;
     
-    opacity: 0;
     transition: 1s;
+    opacity: 0;
 }
 
 .collection-likes {
@@ -1099,26 +1100,6 @@ h6 {
     margin-top: 8px;
 }
 
-/* .collection-card:hover .collection-card-rect {
-    width: 366px;
-    height: 366px;
-    left: -86px;
-    top: 20px;
-    background-size: cover;
-}
-
-.collection-card:hover .collection-card-play-btn {
-    opacity: 1;
-}
-
-.collection-card:hover .collection-details {
-    top: 170px;
-}
-
-.collection-card:hover .collection-likes {
-    top: 235px;
-} */
-
 .album-container {
     display: none;
 }
@@ -1161,6 +1142,7 @@ h6 {
     flex: none;
     order: 0;
     flex-grow: 0;
+    transition: 0.1s;
 }
 
 #add-collection-btn {
@@ -1173,7 +1155,7 @@ h6 {
     flex: none;
     order: 1;
     flex-grow: 0;
-    transition: 1s;
+    transition: 0.1s;
 }
 
 .favourite-btn {
@@ -1224,7 +1206,7 @@ h6 {
     top: 189px;
 }
 
--title {
+.album-container-title {
     height: 42px;
 
     color: #A4C7C6;
@@ -1431,16 +1413,7 @@ h6 {
     display: none;
 }
 
-.no-collection {
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 400;
-
-    position: absolute;
-    left: 356px;
-    top: 144px;
-}
-
-.no-likes {
+.no-collection, .no-likes {
     color: rgba(255, 255, 255, 0.5);
     font-weight: 400;
 
@@ -1453,7 +1426,7 @@ h6 {
     .home-wrapper {
         position: relative;
         width: 414px;
-        height: 100%;
+        height: 100vh;
         
         /* dark */
         
@@ -1466,12 +1439,11 @@ h6 {
         height: 93%;
         
         overflow-x: hidden;
-        /* border: solid red; */
     }
 
     .test {
         width: 1125px;
-        height: 50px;
+        height: 110px;
         position: absolute;
         top: 1370px;
         left: 0px;
@@ -1542,7 +1514,7 @@ h6 {
         width: 428px;
         height: 125px;
         left: -5px;
-        top: 100%;
+        top: 90.86%;
     }
     
     #playing-art {
@@ -1619,6 +1591,7 @@ h6 {
         
         
         color: rgba(255, 255, 255, 0.44);
+        display: flex;
     }
 
     .playing-song-title-sm {
@@ -1637,6 +1610,7 @@ h6 {
         
         
         color: #FFFFFF;
+        display: flex;
     }
 
     #playing-art-sm {
@@ -1650,6 +1624,7 @@ h6 {
         background-size: cover;
         box-shadow: 0px 17.5746px 19.9179px -11.7164px rgba(0, 0, 0, 0.61);
         border-radius: 16.403px;
+        display: flex;
     }
 
     .play-control-sm {
@@ -1668,11 +1643,13 @@ h6 {
         flex: none;
         order: 1;
         flex-grow: 0;
+        display: flex;
     }
 
     .play-control-btn-sm {
         width: 21.82px;
         height: 21.82px;
+        display: flex;
     }
 
     .list-container-wrapper {
@@ -1889,7 +1866,7 @@ h6 {
         z-index: 1;
         width: 0px;
         overflow-x: hidden;
-        transition: width 0.5s;
+        transition: width 0.3s;
     }
 
     .menu {
@@ -1952,8 +1929,12 @@ h6 {
         /* or 20px */
         
         
-        color: #FFFFFF;
+        color: rgba(239, 238, 224, 0.25);
         white-space: nowrap;
+    }
+
+    .menu li .home-btn {
+        color: #FFFFFF;
     }
 
     .menu li button img {
@@ -1969,5 +1950,167 @@ h6 {
     .home-btn {
         filter: drop-shadow(0px 5.23288px 5.23288px rgba(0, 0, 0, 0.25));
     }
+
+    .collection-container {
+        left: 27px;
+        width: 391px;
+        height: 93%;
+        
+        overflow-x: hidden;
+    }
+
+    #my-collection-btn {
+        left: 27px;
+        width: 178px;
+    }
+
+    #likes-btn {
+        width: 166px;
+    }
+
+    .collection-card-wrapper {
+        position: absolute;
+        width: 359px;
+        height: 86%;
+        left: 27px;
+        top: 170px;
+
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        overflow-x: scroll;
+    }
+
+    .collection-card {
+        width: 359px;
+        height: 234px;
+    }
+
+    .collection-card-rect {
+        width: 359px;
+        height: 234px;
+    }
+
+    .collection-card-play-btn {
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        left: 293px;
+        top: 167px;
+        opacity: 1;
+    }
+
+    .collection-likes {
+        position: absolute;
+        width: 63px;
+        height: 17px;
+        left: 21px;
+        top: 194px;
+        font-size: 14px;
+    }
+
+    .collection-details {
+        top: 120px;
+    }
+
+    .album-btn {
+        gap: 11px;
+        
+        position: absolute;
+        width: 356px;
+        left: 28px;
+        top: 547px;
+    }
+
+    .about-album {
+        position: absolute;
+        width: 362px;
+        left: 27px;
+        top: 410px;
+    }
+
+    .album-info {
+        width: 362px;
+    }
+
+    .album-info h5 {
+        width: 362px;
+    }
+
+    .lead-image {
+        width: 357px;
+        left: 27px;
+        
+        border-radius: 25px;
+    }
+
+    .album-song-wrapper {
+        position: absolute;
+        width: 354px;
+        height: 30.5%;
+        left: 29px;
+        top: 608px;
+    }
+
+    .album-song {
+        width: 354px;
+    }
+
+    .more-btn {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        left: 332.26px;
+        top: 11px;        
+    }
+
+    .like-song {
+        display: none;
+    }
+
+    .song-art {
+        left: 9px;
+        border-radius: 5px;
+    }
+
+    .song-title {
+        left: 62px;
+        top: 11px;
+    }
+
+    .song-type {
+        position: absolute;
+        width: 28px;
+        height: 12px;
+        left: 62px;
+        top: 31px;
+        font-size: 10px;
+    }
+
+    .song-time {
+        left: 325px;
+        top: 33px;        
+    }
 }
 
+@media only screen and (min-width: 700px) {
+    .collection-card:hover .collection-card-rect {
+        width: 366px;
+        height: 366px;
+        left: -86px;
+        top: -20px;
+        background-size: cover;
+    }
+    
+    .collection-card:hover .collection-card-play-btn {
+        opacity: 1;
+    }
+    
+    .collection-card:hover .collection-details {
+        top: 133px;
+    }
+    
+    .collection-card:hover .collection-likes {
+        top: 195px;
+    }
+}

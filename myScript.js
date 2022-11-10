@@ -2,53 +2,45 @@ const homePage = document.getElementsByClassName("home-container")[0];
 const collectionPage = document.getElementsByClassName("collection-container")[0];
 const collectionCardRect = document.getElementsByClassName("collection-card-rect");
 const collectionCard = document.getElementsByClassName("collection-card");
-const homeBtn = document.getElementById("home-btn");
+const homeBtn = document.querySelectorAll(".home-btn");
 const likesBtn = document.getElementById("likes-btn");
 const collectionCardPlayBtn = document.getElementsByClassName("collection-card-play-btn");
 const collectionDetails = document.getElementsByClassName("collection-details");
 const collectionLikes = document.getElementsByClassName("collection-likes");
 const myCollectionBtn = document.getElementById("my-collection-btn")
-const playlistBtn = document.getElementById("music-library-btn");
+const playlistBtn = document.querySelectorAll(".music-library-btn");
 const likesBtnText = document.getElementsByClassName("likes-text")[0];
 const myCollectionText = document.getElementsByClassName("my-collection-text")[0];
-const chartCard = document.getElementsByClassName("chart-card");
 const albumPage = document.getElementsByClassName("album-container")[0];
 const body = document.getElementsByClassName("home-wrapper")[0];
 const topNav = document.getElementsByClassName("navbar")[0];
-const chartArt = document.getElementsByClassName("chart-art");
 const albumPageImage = document.getElementsByClassName("lead-image")[0];
 const chartTitle = document.getElementsByClassName("chart-title");
 const albumPageTitle = document.getElementsByClassName("album-container-title")[0];
+const addToCollectionBtn = document.getElementById("add-collection-btn");
 
 
 
+homeBtn.forEach(
+    (button, i) => {
+        button.addEventListener("click", (event) => {
+            homeBtn[0].src = "./images/clicked-home-btn.svg";
+            playlistBtn[0].src = "./images/music-library-2.png";
+            collectionPage.style.display = "none";
+            albumPage.style.display = "none";
+            homePage.style.display = "flex";
+            homeBtn[0].style.filter = "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))";
+            body.style.background = "#1D2123"
+            body.style.backgroundPosition = "center";
+            sideMenu.style.width = "0px";
+            homeBtn[1].style.color = "#FFFFFF";
+            playlistBtn[1].style.color = "rgba(239, 238, 224, 0.25)";
+        });
+    }
+)
 
-collectionPage.style.display = "none";
-albumPage.style.display = "none";
-
-
-homeBtn.addEventListener("click", (event) => {
-    homeBtn.src = "./images/clicked-home-btn.svg";
-    playlistBtn.src = "./images/music-library-2.png";
-    collectionPage.style.display = "none";
-    albumPage.style.display = "none";
-    homePage.style.display = "flex";
-    homeBtn.style.filter = "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))";
-    body.style.background = "#1D2123"
-    body.style.backgroundPosition = "center";
-});
-
-
-
-// likesBtn.addEventListener("click", (event) => {
-//     likesBtn.style.background = "#FACD66";
-//     myCollectionBtn.style.background = "none";
-//     myCollectionText.style.color = "#EFEEE0";
-//     likesBtnText.style.color = "#1D2123";
-// });
-
-
-
+const chartCard = document.getElementsByClassName("chart-card");
+const chartArt = document.getElementsByClassName("chart-art");
 
 chartArt[0].style.background = "url(./images/chart-art1.svg), #D9D9D9";
 chartArt[1].style.background = "url(./images/chart-art2.svg), #D9D9D9";
@@ -64,32 +56,26 @@ for (let i = 0; i < chartCard.length; i++) {
         body.style.background = `linear-gradient(180deg, rgba(29, 33, 35, 0.8) 0%, #1D2123 61.48%), ${chartArt[i].style.background}`;
         body.style.backgroundPosition = "center";
         albumPageTitle.textContent = chartTitle[i].textContent;
+
+        collectionToggle();
+        collectionToggle();
     });
 }
 
 
 const playAllBtn = document.getElementById("play-all-btn");
+const addToCollectionBtnText = document.querySelector(".add-collection-btn-text");
+const playAllBtnText = document.querySelector(".play-all-btn-text");
 
 playAllBtn.addEventListener("mouseover", (event) => {
-    // likesBtn.style.background = "none";
     playAllBtn.style.background = "#FACD66";
-    // myCollectionText.style.color = "#1D2123";
-    // likesBtnText.style.color = "#EFEEE0";
+    playAllBtnText.style.color = "#1D2123";
 });
 
 playAllBtn.addEventListener("mouseout", (event) => {
-    // likesBtn.style.background = "none";
     playAllBtn.style.background = "rgba(255, 255, 255, 0.07)";
-    // myCollectionText.style.color = "#1D2123";
-    // likesBtnText.style.color = "#EFEEE0";
+    playAllBtnText.style.color = "#FFFFFF";
 });
-
-
-const likeChartBtn = document.querySelectorAll(".favourite-btn-container");
-const heartImg = document.querySelectorAll(".like-chart");
-
-
-
 
 const listContainer = document.getElementsByClassName('list-items');
 
@@ -139,7 +125,6 @@ for (let i = 0; i < newReleaseArray.length; i++) {
     const newReleaseTitle = document.createElement("h6");
     const newReleaseArtist = document.createElement("h6");
 
-    // newReleaseCard.style.border = "solid red"
     newReleaseCard.classList.add("new-release-card");
 
     newReleaseArt.classList.add("new-release-art");
@@ -166,6 +151,7 @@ for (let i = 0; i < newReleaseArray.length; i++) {
         ${newReleaseArt.style.background}`;
 
         setAlbumPage();
+        collectionToggle();
     });
 }
 
@@ -203,16 +189,17 @@ for (let i = 0; i < popularMusicArray.length; i++) {
         ${popularArt.style.background}`;
 
         setAlbumPage();
+        collectionToggle();
     });
 }
 
 const viewAlbum = () => {
-    homeBtn.src = "./images/clicked-home-btn.svg";
-    playlistBtn.src = "./images/music-library-2.png";
+    homeBtn[0].src = "./images/clicked-home-btn.svg";
+    playlistBtn[0].src = "./images/music-library-2.png";
     collectionPage.style.display = "none";
     homePage.style.display = "none";
     albumPage.style.display = "flex";
-    homeBtn.style.filter = "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))";
+    homeBtn[0].style.filter = "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))";
     body.style.backgroundSize = "cover";
 }
 
@@ -227,8 +214,6 @@ const setAlbumPage = () => {
 
 const buttonRight = document.querySelectorAll('.slide-right');
 const buttonLeft = document.querySelectorAll('.slide-left');
-
-
 
 for (let i = 0; i < listContainer.length; i++) {
     listContainer[i].addEventListener("mouseover", (event) => {
@@ -261,10 +246,24 @@ for (let i = 0; i < listContainer.length; i++) {
 }
 
 
+let collection;
+let collectionIndex;
+let likesIndex;
+let newCollection;
+let newCollectionCardPlayBtn;
+let newCollectionLikes;
+let newCollectionDetails;
+let newCollectionTitle;
+let newCollectionCardRect;
+let newCollectionArtist;
+
+const likeChartBtn = document.querySelectorAll(".favourite-btn-container");
+const heartImg = document.querySelectorAll(".like-chart");
 const allCollections = document.querySelector(".collection-card-wrapper");
 const likesWrapper = document.getElementsByClassName("likes-card-wrapper")[0];
 likesWrapper.classList.add("collection-card-wrapper");
 likesWrapper.style.display = "none";
+
 
 let collectionArray = [];
 
@@ -278,15 +277,46 @@ if (collectionData) {
     collectionArray = [];
 }
 
-const addToCollectionBtn = document.getElementById("add-collection-btn");
+localStorage.setItem("collectionStore", JSON.stringify(collectionArray));
+
+playlistBtn.forEach(
+    (button, i) => {
+        button.addEventListener("click", (event) => {
+            homeBtn[0].src = "./images/home-btn.svg";
+            playlistBtn[0].src = "./images/clicked-music-library-2.svg";
+            homePage.style.display = "none";
+            collectionPage.style.display = "flex";
+            playlistBtn[0].style.filter = "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))";
+            albumPage.style.display = "none";
+            body.style.background = "#1D2123"
+            body.style.backgroundPosition = "center";
+            likesWrapper.style.display = "none";
+            allCollections.style.display = "flex";
+            homeBtn[1].style.color = "rgba(239, 238, 224, 0.25)";
+            playlistBtn[1].style.color = "#FFFFFF";
+
+            likesBtn.style.background = "none";
+            myCollectionBtn.style.background = "#FACD66";
+            myCollectionText.style.color = "#1D2123";
+            likesBtnText.style.color = "#EFEEE0";
+
+            likesWrapper.style.display = "none";
+            allCollections.style.display = "flex";
+
+            sideMenu.style.width = "0px";
+
+            displayCollection();
+        });
+    }
+)
 
 addToCollectionBtn.addEventListener("click", () => {
-    let collection = Object.create(collectionObject);
+    collection = Object.create(collectionObject);
     collection.title = `${albumPageTitle.textContent}`;
     collection.art = `${albumPageImage.style.background}`
     collection.artist = "ay dot";
 
-    const collectionIndex = collectionArray.findIndex(collection => {
+    collectionIndex = collectionArray.findIndex(collection => {
         return collection.title === `${albumPageTitle.textContent}`;
     });
 
@@ -295,49 +325,22 @@ addToCollectionBtn.addEventListener("click", () => {
     } else {
         collectionArray.splice(collectionIndex, 1);
     }
-    
+
+    collectionToggle();
+
     localStorage.setItem("collectionStore", JSON.stringify(collectionArray));
 });
 
+myCollectionBtn.addEventListener("click", (event) => {
+    likesBtn.style.background = "none";
+    myCollectionBtn.style.background = "#FACD66";
+    myCollectionText.style.color = "#1D2123";
+    likesBtnText.style.color = "#EFEEE0";
 
-
-
-
-let newCollection;
-let newCollectionCardPlayBtn;
-let newCollectionLikes;
-let newCollectionDetails;
-let newCollectionTitle;
-let newCollectionCardRect;
-let newCollectionArtist;
-
-playlistBtn.addEventListener("click", (event) => {
-    homeBtn.src = "./images/home-btn.svg";
-    playlistBtn.src = "./images/clicked-music-library-2.svg";
-    homePage.style.display = "none";
-    collectionPage.style.display = "flex";
-    playlistBtn.style.filter = "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))";
-    albumPage.style.display = "none";
-    body.style.background = "#1D2123"
-    body.style.backgroundPosition = "center";
     likesWrapper.style.display = "none";
     allCollections.style.display = "flex";
 
-    collectionHover();
-});
-
-addToCollectionBtn.addEventListener("mouseover", (event) => {
-    // likesBtn.style.background = "none";
-    addToCollectionBtn.style.background = "#FACD66";
-    // myCollectionText.style.color = "#1D2123";
-    // likesBtnText.style.color = "#EFEEE0";
-});
-
-addToCollectionBtn.addEventListener("mouseout", (event) => {
-    // likesBtn.style.background = "none";
-    addToCollectionBtn.style.background = "rgba(255, 255, 255, 0.07)";
-    // myCollectionText.style.color = "#1D2123";
-    // likesBtnText.style.color = "#EFEEE0";
+    displayCollection();    
 });
 
 const favouriteArt = document.querySelectorAll(".likeable-art");
@@ -356,10 +359,7 @@ if (likesData) {
     likesArray = [];
 }
 
-const heartIcons = ["red-heart.svg", "Heart.svg"];
-let j = 0;
-
-
+localStorage.setItem("likesStore", JSON.stringify(likesArray));
 
 for (let i = 0; i < likeChartBtn.length; i++) {
     likeChartBtn[i].addEventListener("click", () => {
@@ -368,25 +368,20 @@ for (let i = 0; i < likeChartBtn.length; i++) {
         likes.art = `${favouriteArt[i].style.background}`;
         likes.artist = `${favouriteArtist[i].textContent}`;
 
-        const likesIndex = likesArray.findIndex(likes => {
+        likesIndex = likesArray.findIndex(likes => {
             return likes.title === `${favouriteTitle[i].textContent}`;
         });
 
         if (likesIndex === -1) {
             likesArray.push(likes);
-            //likes.button = "red-heart.svg";
-            heartImg[i].src = "red-heart.svg";
         } else {
             likesArray.splice(likesIndex, 1);
-            //likes.button = "red-heart.svg";
-            heartImg[i].src = "Heart.svg";
         }
-        
+
+        likesToggle();
         localStorage.setItem("likesStore", JSON.stringify(likesArray));
     });
-   // heartImg[i].src = likesData[i].button;
 }
-
 
 likesBtn.addEventListener("click", (event) => {
     likesBtn.style.background = "#FACD66";
@@ -397,10 +392,8 @@ likesBtn.addEventListener("click", (event) => {
     allCollections.style.display = "none";
     likesWrapper.style.display = "flex";
 
-    newCollection.style.display = "flex";
-
     likesWrapper.innerHTML = "";
-    if (likesData) {
+    if (likesData.length > 0) {
         for (let i = 0; i < likesData.length; i++) {
             addToCollection();
             newCollectionTitle.textContent = `${likesData[i].title}`;
@@ -408,12 +401,27 @@ likesBtn.addEventListener("click", (event) => {
                  linear-gradient(179.89deg, rgba(0, 0, 0, 0) 0.1%, rgba(15, 18, 19, 0.85) 80.67%), 
                  ${likesData[i].art}`;
             likesWrapper.prepend(newCollection);
+
+            newCollection.addEventListener("click", () => {
+                viewAlbum();
+                albumPageTitle.textContent = likesData[i].title;
+                albumPageImage.style.background = likesData[i].art;
+
+                body.style.background =
+                    `linear-gradient(180deg, rgba(29, 33, 35, 0.8) 0%, #1D2123 61.48%), 
+                ${likesData[i].art}`;
+
+                setAlbumPage();
+                collectionToggle();
+            });
         }
     } else {
-        console.log("okay");
-    }
+        const nolikes = document.createElement("h3");
+        nolikes.classList.add("no-likes");
+        nolikes.textContent = `No favourites.`;
 
-    collectionHover();
+        likesWrapper.append(nolikes);
+    }
 });
 
 
@@ -423,10 +431,9 @@ const addToCollection = () => {
 
     newCollectionCardPlayBtn = document.createElement("input");
     newCollectionCardPlayBtn.type = "image";
-    newCollectionCardPlayBtn.src = "collection-play.svg";
+    newCollectionCardPlayBtn.src = "./images/collection-play.svg";
     newCollectionCardPlayBtn.alt = "play";
     newCollectionCardPlayBtn.classList.add("collection-card-play-btn");
-    newCollectionCardPlayBtn.style.opacity = "0";
 
     newCollectionLikes = document.createElement("h6");
     newCollectionLikes.textContent = `2.3 likes`;
@@ -454,84 +461,9 @@ const addToCollection = () => {
     newCollection.append(newCollectionDetails);
 }
 
-const collectionHover = () => {
-    for (let i = 0; i < collectionCard.length; i++) {
-        collectionCard[i].addEventListener("mouseover", (event) => {
-            collectionCardRect[i].style.width = "366px";
-            collectionCardRect[i].style.height = "366px";
-            collectionCardRect[i].style.left = "-86px";
-            collectionCardRect[i].style.top = "-20px";
-            collectionCardRect[i].style.backgroundSize = "cover";
-            collectionCardPlayBtn[i].style.opacity = "1";
-            collectionDetails[i].style.top = "133px";
-            collectionLikes[i].style.top = "195px";
-        });
-
-        collectionCard[i].addEventListener("mouseout", (event) => {
-            collectionCardRect[i].style.width = "213px";
-            collectionCardRect[i].style.height = "234px";
-            collectionCardRect[i].style.left = "0px";
-            collectionCardRect[i].style.top = "0px";
-            collectionCardRect[i].style.backgroundSize = "cover";
-            collectionCardPlayBtn[i].style.opacity = "0";
-            collectionDetails[i].style.top = "170px";
-            collectionLikes[i].style.top = "235px";
-        });
-    }
-}
-
-function addLikedItem() {
-    if (likesData) {
-        for (let i = 0; i < likesData.length; i++) {
-            addToCollection();
-            newCollectionTitle.textContent = `${likesData[i].title}`;
-            newCollectionCardRect.style.background = `
-            linear-gradient(179.89deg, rgba(0, 0, 0, 0) 0.1%, rgba(15, 18, 19, 0.85) 80.67%), 
-            ${likesData[i].art}`;
-            likesWrapper.prepend(newCollection);
-        }
-    } else {
-        console.log("okay");
-    }
-}
-
-addLikedItem();
-
-function addCollection() {
-    if (collectionData) {
-        for (let i = 0; i < collectionData.length; i++) {
-            addToCollection();
-            newCollectionTitle.textContent = `${collectionData[i].title}`;
-            newCollectionCardRect.style.background = `
-                 linear-gradient(179.89deg, rgba(0, 0, 0, 0) 0.1%, rgba(15, 18, 19, 0.85) 80.67%), 
-                 ${collectionData[i].art}`;
-            allCollections.prepend(newCollection);
-        }
-    } else {
-        console.log("okay");
-    }
-}
-
-addCollection();
-
-myCollectionBtn.addEventListener("click", (event) => {
-    likesBtn.style.background = "none";
-    myCollectionBtn.style.background = "#FACD66";
-    myCollectionText.style.color = "#1D2123";
-    likesBtnText.style.color = "#EFEEE0";
-
-
-    likesWrapper.style.display = "none";
-    allCollections.style.display = "flex";
-
-    allCollections.innerHTML = "";
-    displayCollection();
-
-    collectionHover();
-});
-
 const displayCollection = () => {
-    if (collectionData) {
+    allCollections.innerHTML = "";
+    if (collectionData.length > 0) {
         for (let i = 0; i < collectionData.length; i++) {
             addToCollection();
             newCollectionTitle.textContent = `${collectionData[i].title}`;
@@ -539,11 +471,60 @@ const displayCollection = () => {
                  linear-gradient(179.89deg, rgba(0, 0, 0, 0) 0.1%, rgba(15, 18, 19, 0.85) 80.67%), 
                  ${collectionData[i].art}`;
             allCollections.prepend(newCollection);
+
+            newCollection.addEventListener("click", () => {
+                viewAlbum();
+                albumPageTitle.textContent = collectionData[i].title;
+                albumPageImage.style.background = collectionData[i].art;
+
+                body.style.background =
+                    `linear-gradient(180deg, rgba(29, 33, 35, 0.8) 0%, #1D2123 61.48%), 
+                ${collectionData[i].art}`;
+
+                setAlbumPage();
+                collectionToggle();
+            });
         }
     } else {
-        console.log("okay");
-    }   
+        const noCollection = document.createElement("h3");
+        noCollection.classList.add("no-collection");
+        noCollection.textContent = `Opps! Your Collections are empty.`;
+
+        allCollections.append(noCollection);
+    }
 }
+
+const collectionToggle = () => {
+    collectionIndex = collectionArray.findIndex(collection => {
+        return collection.title === `${albumPageTitle.textContent}`;
+    });
+
+    if (collectionIndex === -1) {
+        addToCollectionBtnText.style.color = "#FFFFFF";
+        addToCollectionBtn.style.background = "rgba(255, 255, 255, 0.07)";
+    } else {
+        addToCollectionBtnText.style.color = "#1D2123";
+        addToCollectionBtn.style.background = "#FCD66A";
+    }
+}
+
+const likesToggle = () => {
+    for (let i = 0; i < favouriteTitle.length; i++) {
+        likesIndex = likesArray.findIndex(likes => {
+            return likes.title === `${favouriteTitle[i].textContent}`;
+        });
+
+        if (likesIndex === -1) {
+            heartImg[i].src = "./images/Heart.svg";
+        } else {
+            heartImg[i].src = "./images/red-heart.svg";
+        }
+    }
+
+}
+
+likesToggle();
+
 
 const menuBtn = document.getElementById("menu-btn");
 const sideMenu = document.querySelector(".side-menu");
@@ -553,4 +534,13 @@ menuBtn.addEventListener("click", () => {
     homePage.addEventListener("click", () => {
         sideMenu.style.width = "0px";
     });
+    collectionPage.addEventListener("click", () => {
+        sideMenu.style.width = "0px";
+    });
+    albumPage.addEventListener("click", () => {
+        sideMenu.style.width = "0px";
+    });
 });
+
+
+

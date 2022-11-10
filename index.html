@@ -26,8 +26,8 @@
       </div>
       <nav class="app-nav">
         <div class="app-nav-btn-container">
-        <input type="image" src="./images/clicked-home-btn.svg" alt="Home" class="app-nav-btn" id="home-btn">
-        <input type="image" src="./images/music-library-2.png" alt="Libary" class="app-nav-btn" id="music-library-btn">
+        <input type="image" src="./images/clicked-home-btn.svg" alt="Home" class="app-nav-btn home-btn">
+        <input type="image" src="./images/music-library-2.png" alt="Libary" class="app-nav-btn music-library-btn">
         <input type="image" src="./images/radio.png" alt="Radio" class="app-nav-btn radio-btn">
         <input type="image" src="./images/video-horizontal.png" alt="Video" class="app-nav-btn video-horizontal-btn">
         </div>
@@ -48,13 +48,13 @@
       <section class="side-menu">
         <ul class="menu">
           <li>
-            <button>
-              <img src="./images/clicked-home-btn.svg" alt="home" class="hom-btn">
+            <button class="home-btn">
+              <img src="./images/clicked-home-btn.svg" alt="home">
               Home
             </button>
           </li>
           <li>
-            <button>
+            <button class="music-library-btn">
               <img src="./images/music-library-2.png" alt="library">
               My collections
             </button>
@@ -181,7 +181,7 @@
           <h3 class="no-collection">Opps! Your Collections are empty.</h3>
         </div>
         <div class="likes-card-wrapper">
-          <h3 class="no-likes">Opps! Your Collections are empty.</h3>
+          <h3 class="no-likes">Opps! Your Likes are empty.</h3>
         </div>
       </section>
       <section class="album-container">
@@ -198,11 +198,11 @@
         <div class="album-btn">
           <button id="play-all-btn">
             <img src="./images/album-play.svg" alt="play">
-            <h6>Play all</h6>
+            <h6 class="play-all-btn-text">Play all</h6>
           </button>
           <button id="add-collection-btn">
             <img src="./images/music-square-add.svg" alt="add">
-            <h6>Add to collection</h6>
+            <h6 class="add-collection-btn-text">Add to collection</h6>
           </button>
           <button class="favourite-btn">
             <img src="./images/red-heart.svg" alt="like">
