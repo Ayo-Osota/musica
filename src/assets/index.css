@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    height: 100%;
+    color: #fff;
+}
+
+body {
+    @apply font-serif;
+}
+
+@layer components {
+    .button {
+        @apply p-2.5 inline-flex gap-2.5 items-center font-normal text-xs leading-[1.2] rounded-4xl bg-secondary-400 text-mainBg;
+    }
+
+    .button__inverted {
+        @apply border border-primary-100 text-primary-100 bg-transparent;
+    }
+
+    .button__plain {
+        @apply text-white bg-[#FFFFFF12] backdrop-blur-md;
+    }
+
+    label {
+        @apply font-semibold tracking-wide;
+    }
+
+    .custom-input {
+        @apply block w-full py-2 px-3 text-mainBg border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded bg-transparent placeholder:text-primary-900;
+    }
+}
+
+.app-bg-with-image {
+    /* background: linear-gradient(180deg, rgba(29, 33, 35, 0.8) 0%, #1D2123 61.48%); */
+    background-position: center 33%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #1D2123 inset !important;
+    box-shadow: 0 0 0 30px #1D2123 inset !important;
+    color: #fff;
+}
+
+#scroller::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+}
+
+#scroller {
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
